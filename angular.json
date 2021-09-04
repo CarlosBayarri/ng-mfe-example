@@ -69,16 +69,13 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng-mfe-example:build",
-            "extraWebpackConfig": "webpack.config.js",
-            "port": 80
+            "browserTarget": "ng-mfe-example:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-mfe-example:build:production",
-              "extraWebpackConfig": "webpack.prod.config.js"
+              "browserTarget": "ng-mfe-example:build:production"
             }
           }
         },
