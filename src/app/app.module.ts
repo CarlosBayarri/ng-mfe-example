@@ -1,10 +1,9 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Injector, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { createCustomElement } from '@angular/elements';
-import { MfeModule } from './mfe.module';
+import { Mfe1Module } from './mfe1/mfe1.module';
 
 @NgModule({
   declarations: [
@@ -13,16 +12,9 @@ import { MfeModule } from './mfe.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MfeModule
+    Mfe1Module
   ],
   providers: [],
-  entryComponents: [AppComponent]
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(private injector: Injector) {}
-
-  ngDoBootstrap() {
-    const el = createCustomElement(AppComponent, { injector: this.injector });
-    customElements.define('ng-mfe-example', el);
-  }
-}
+export class AppModule { }
