@@ -13,7 +13,7 @@ module.exports = {
       name: 'mfe1',
       filename: 'remoteEntry.js',
       exposes: {
-        './Module': './src/app/app.module.ts',
+        './Module': './src/app/mfe1/mfe1.module.ts',
       },
       shared: {
         '@angular/core': { singleton: true, strictVersion: true },
