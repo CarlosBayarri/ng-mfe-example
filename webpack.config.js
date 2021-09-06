@@ -32,10 +32,9 @@ module.exports = {
             "mfe1": "mfe1@https://carlosbayarri.github.io/ng-mfe-example/remoteEntry.js",
         },
         shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
+          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
+          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
           ...sharedMappings.getDescriptors()
         })
 
