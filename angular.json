@@ -69,20 +69,24 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
-            "browserTarget": "ng-mfe-example:build"
+            "browserTarget": "ng-mfe-example:build",
+            "extraWebpackConfig": "webpack.config.js",
+            "port": 80
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng-mfe-example:build:production"
+              "browserTarget": "ng-mfe-example:build:production",
+              "extraWebpackConfig": "webpack.prod.config.js"
             }
           }
         },
         "extract-i18n": {
           "builder": "ngx-build-plus:extract-i18n",
           "options": {
-            "browserTarget": "ng-mfe-example:build"
+            "browserTarget": "ng-mfe-example:build",
+            "extraWebpackConfig": "webpack.config.js"
           }
         },
         "test": {
