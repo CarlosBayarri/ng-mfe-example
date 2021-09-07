@@ -5,13 +5,19 @@ import { Mfe1Component } from './mfe1.component';
 const routes: Routes = [
 
   { path: '', component: Mfe1Component, children: [
+
     {
-      path: 'products',
-      loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
+      path: '',
+      redirectTo: 'home',
+      pathMatch: 'full'
     },
     {
       path: 'home',
       loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    },
+    {
+      path: 'products',
+      loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
     },
     {
       path: 'about',
