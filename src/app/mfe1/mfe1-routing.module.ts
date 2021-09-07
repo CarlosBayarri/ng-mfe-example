@@ -3,17 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { Mfe1Component } from './mfe1.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'mfe1',
-    pathMatch: 'full'
-  },
-  { component: Mfe1Component, path: 'mfe1', children: [
-    {
-      path: '',
-      redirectTo: 'home',
-      pathMatch: 'full'
-    },
+
+  { path: '', component: Mfe1Component, children: [
     {
       path: 'products',
       loadChildren: () => import('./products/products.module').then(m => m.ProductsModule)
