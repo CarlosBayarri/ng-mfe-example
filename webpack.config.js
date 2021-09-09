@@ -1,12 +1,8 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
-const path = require("path");
 const share = mf.share;
 
-const sharedMappings = new mf.SharedMappings();
-sharedMappings.register(
-  path.join(__dirname, 'tsconfig.json'),
-  [/* mapped paths to share */]);
+
 
 module.exports = {
   output: {
@@ -16,11 +12,6 @@ module.exports = {
   optimization: {
     runtimeChunk: false
   },
-  resolve: {
-    alias: {
-      ...sharedMappings.getAliases(),
-    }
-  },
   plugins: [
     new ModuleFederationPlugin({
         name: "mfe1",
@@ -28,17 +19,11 @@ module.exports = {
         exposes: {
             './Module': './src/app/app.module.ts',
         },
-        remotes: {
-            "mfe1": "mfe1@https://carlosbayarri.github.io/ng-mfe-example/remoteEntry.js",
-        },
         shared: share({
           "@angular/core": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
           "@angular/common": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
           "@angular/router": { singleton: true, strictVersion: true, requiredVersion: '12.2.4' },
-          ...sharedMappings.getDescriptors()
         })
-
-    }),
-    sharedMappings.getPlugin()
-  ],
+    })
+  ]
 };
