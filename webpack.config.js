@@ -10,7 +10,7 @@ sharedMappings.register(
 
 module.exports = {
   output: {
-    uniqueName: "ngMfeExample",
+    uniqueName: "mfe1",
     publicPath: "auto"
   },
   optimization: {
@@ -26,7 +26,7 @@ module.exports = {
         name: "mfe1",
         filename: "remoteEntry.js",
         exposes: {
-            './Module': './/src/app/app.module.ts',
+            './Module': './src/app/app.module.ts',
         },
         remotes: {
             "mfe1": "mfe1@https://carlosbayarri.github.io/ng-mfe-example/remoteEntry.js",
